@@ -87,78 +87,77 @@ export function NavbarClient({ session }: NavbarClientProps) {
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-white/80 backdrop-blur-xl md:hidden flex flex-col"
-                    >
-                        <div className="container mx-auto px-4 h-20 flex items-center justify-between border-b border-gray-100/50">
-                            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
-                                <div className="relative h-10 w-10 overflow-hidden rounded-full border border-pink-100">
-                                    <Image
-                                        src="/assets/logo.png"
-                                        alt="Toko SR12 Elbirroe"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <span className="text-lg font-serif font-bold text-gray-900">SR12 Elbirroe</span>
-                            </Link>
-                            <button
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="p-2 text-gray-500 hover:text-pink-600 transition-colors"
-                            >
-                                <X className="h-8 w-8" />
-                            </button>
-                        </div>
-
-                        <div className="flex-1 flex flex-col items-center justify-center gap-8 p-8">
-                            {navLinks.map((link, index) => (
-                                <motion.div
-                                    key={link.href}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + index * 0.1 }}
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 md:hidden"
+                        />
+                        <motion.div
+                            initial={{ x: '-100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '-100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed inset-y-0 left-0 w-72 bg-white shadow-2xl z-50 md:hidden flex flex-col"
+                        >
+                            <div className="p-6 flex justify-between items-center border-b border-gray-100">
+                                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
+                                    <div className="relative h-10 w-10 overflow-hidden rounded-full border border-pink-100">
+                                        <Image
+                                            src="/assets/logo.png"
+                                            alt="Toko SR12 Elbirroe"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <span className="text-lg font-serif font-bold text-gray-900">SR12 Elbirroe</span>
+                                </Link>
+                                <button
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
                                 >
+                                    <X className="h-5 w-5" />
+                                </button>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto py-6 px-4 space-y-2">
+                                {navLinks.map((link) => (
                                     <Link
+                                        key={link.href}
                                         href={link.href}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-2xl font-medium text-gray-900 hover:text-pink-600 transition-colors tracking-tight"
+                                        className="block px-4 py-3 text-base font-medium text-gray-600 hover:text-pink-600 hover:bg-pink-50 rounded-xl transition-all"
                                     >
                                         {link.label}
                                     </Link>
-                                </motion.div>
-                            ))}
+                                ))}
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="flex flex-col gap-4 w-full max-w-xs mt-8"
-                            >
-                                {session ? (
-                                    <Link
-                                        href="/admin"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-full bg-gray-900 text-white font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-                                    >
-                                        <LayoutDashboard className="h-5 w-5" />
-                                        Dashboard Admin
-                                    </Link>
-                                ) : (
-                                    <Link
-                                        href="/login"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center gap-2 w-full px-8 py-4 rounded-full bg-pink-600 text-white font-medium hover:bg-pink-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-                                    >
-                                        <User className="h-5 w-5" />
-                                        Masuk
-                                    </Link>
-                                )}
-                            </motion.div>
-                        </div>
-                    </motion.div>
+                                <div className="pt-6 mt-6 border-t border-gray-100 px-4">
+                                    {session ? (
+                                        <Link
+                                            href="/admin"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-gray-900 text-white font-medium hover:bg-gray-800 transition-all shadow-sm"
+                                        >
+                                            <LayoutDashboard className="h-5 w-5" />
+                                            Dashboard Admin
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            href="/login"
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-pink-600 text-white font-medium hover:bg-pink-700 transition-all shadow-sm"
+                                        >
+                                            <User className="h-5 w-5" />
+                                            Masuk
+                                        </Link>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>
