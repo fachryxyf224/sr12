@@ -21,7 +21,7 @@ export function NavbarClient({ session }: NavbarClientProps) {
 
     return (
         <nav className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60">
-            <div className="container mx-auto flex h-20 items-center justify-between px-4">
+            <div className="w-full max-w-7xl mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
                 <Link href="/" className="flex items-center gap-3 group">
                     <div className="relative h-12 w-12 overflow-hidden rounded-full border border-pink-100 shadow-sm group-hover:shadow-md transition-all">
                         <Image
