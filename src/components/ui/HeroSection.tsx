@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export function HeroSection() {
     return (
-        <section className="relative bg-gradient-to-b from-pink-50 to-white py-20 lg:py-32 overflow-hidden">
+        <section className="relative bg-gradient-to-b from-pink-50 to-white py-20 lg:py-32">
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     <div className="flex-1 max-w-2xl text-center lg:text-left">
@@ -43,35 +43,37 @@ export function HeroSection() {
                     </div>
 
                     <motion.div
-                        className="flex-1 relative"
+                        className="flex-1 relative w-full max-w-md lg:max-w-full"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <div className="relative w-full max-w-md mx-auto aspect-square">
+                        <div className="relative w-full max-w-md mx-auto aspect-square p-4">
                             <div className="absolute inset-0 bg-pink-200 rounded-full opacity-20 blur-3xl animate-pulse"></div>
                             <Image
-                                src="/assets/sr12.jpeg"
+                                src="/assets/hero.png"
                                 alt="SR12 Products"
                                 fill
                                 className="object-cover rounded-2xl shadow-2xl relative z-10"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                priority
                             />
-                            {/* Floating Elements */}
+                            {/* Floating Elements - Adjusted positions */}
                             <motion.div
-                                className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-xl z-20"
+                                className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-xl z-20 border border-pink-100"
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ repeat: Infinity, duration: 3 }}
                             >
-                                <p className="font-bold text-pink-600">100%</p>
-                                <p className="text-xs text-gray-500">Original</p>
+                                <p className="font-bold text-pink-600 text-lg">100%</p>
+                                <p className="text-xs text-gray-500 font-medium">Original</p>
                             </motion.div>
                             <motion.div
-                                className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-xl z-20"
+                                className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-xl z-20 border border-green-100"
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ repeat: Infinity, duration: 4 }}
                             >
-                                <p className="font-bold text-green-600">BPOM</p>
-                                <p className="text-xs text-gray-500">Certified</p>
+                                <p className="font-bold text-green-600 text-lg">BPOM</p>
+                                <p className="text-xs text-gray-500 font-medium">Certified</p>
                             </motion.div>
                         </div>
                     </motion.div>
