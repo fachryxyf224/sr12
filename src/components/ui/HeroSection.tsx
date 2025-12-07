@@ -51,7 +51,7 @@ export function HeroSection() {
                         <div className="relative w-full max-w-md mx-auto aspect-square p-4">
                             <div className="absolute inset-0 bg-pink-200 rounded-full opacity-20 blur-3xl animate-pulse"></div>
                             <Image
-                                src="/assets/hero.png"
+                                src="/assets/sr12.jpeg"
                                 alt="SR12 Products"
                                 fill
                                 className="object-cover rounded-2xl shadow-2xl relative z-10"
