@@ -93,14 +93,14 @@ export function NavbarClient({ session }: NavbarClientProps) {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 md:hidden"
+                            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[55] md:hidden"
                         />
                         <motion.div
                             initial={{ x: '-100%' }}
                             animate={{ x: 0 }}
                             exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed inset-y-0 left-0 w-72 bg-white shadow-2xl z-50 md:hidden flex flex-col"
+                            className="fixed top-0 left-0 h-dvh w-72 bg-white shadow-2xl z-[60] md:hidden flex flex-col"
                         >
                             <div className="p-6 flex justify-between items-center border-b border-gray-100">
                                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
