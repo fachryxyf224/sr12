@@ -91,7 +91,7 @@ export function NavbarClient({ session }: NavbarClientProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-white/95 backdrop-blur-xl md:hidden flex flex-col"
+                        className="fixed inset-0 z-50 bg-white/80 backdrop-blur-xl md:hidden flex flex-col"
                     >
                         <div className="container mx-auto px-4 h-20 flex items-center justify-between border-b border-gray-100/50">
                             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3">
@@ -124,7 +124,7 @@ export function NavbarClient({ session }: NavbarClientProps) {
                                     <Link
                                         href={link.href}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="text-3xl font-serif font-medium text-gray-900 hover:text-pink-600 transition-colors"
+                                        className="text-2xl font-medium text-gray-900 hover:text-pink-600 transition-colors tracking-tight"
                                     >
                                         {link.label}
                                     </Link>
